@@ -24,6 +24,7 @@
     "idb": "^5.0.4",
     "lite-server": "^2.5.4",
     "mongoose": "^5.9.21",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "webpack-pwa-manifest": "^4.2.0"
   }
 }
