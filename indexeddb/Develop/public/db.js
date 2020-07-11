@@ -1,21 +1,27 @@
 let db;
-const request = indexedDB.open("budget", 8);
+const request = indexedDB.open("budget", 1);
 
 request.onupgradeneeded = ({ target }) => {
   db = target.result;
   db.createObjectStore("pending", { autoIncrementt: true });
 };
 
-request.onsuccess = ({ target }) => {
-  db = target.result;
+request.onsuccess = function (event) {
+  db = event.target.result;
+
+  // check if app is online before reading from db
   if (navigator.onLine) {
     checkDatabase();
   }
 };
-
-request.onerror = (event) => {
-  console.log("err" + event.target.errorCode);
-  // console.log(`err ${target}`);
+// request.onsuccess = ({ target }) => {
+//   db = target.result;
+//   if (navigator.onLine) {
+//     checkDatabase();
+//   }
+// };
+request.onerror = function (event) {
+  console.log("Woops! " + event.target.errorCode);
 };
 function saveRecord(record) {
   // create a transaction on the pending db with readwrite access
