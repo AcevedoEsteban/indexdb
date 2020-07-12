@@ -15,19 +15,20 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-// mongoose.connect(
-//   "mongodb://user:password1@ds243254.mlab.com:43254/heroku_lhqhp8c9",
-//   {
-//     useNewUrlParser: true,
-//     useFindAndModify: false,
-//     useUnifiedTopology: true,
-//   }
-// );
-mongoose.connect("mongodb://localhost/budget", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb:user:password1@ds263638.mlab.com:63638/heroku_8w4xfvt0",
+  {
+    useMongoClient: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    // useUnifiedTopology: true,
+  }
+);
+// mongoose.connect("mongodb://localhost/budget", {
+//   useNewUrlParser: true,
+//   useFindAndModify: false,
+//   useUnifiedTopology: true,
+// });
 
 // routes
 app.use(require("./routes/api.js"));
