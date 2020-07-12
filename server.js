@@ -20,8 +20,8 @@ mongoose.connect(
   {
     useMongoClient: true,
     useNewUrlParser: true,
-    useFindAndModify: false,
-    // useUnifiedTopology: true,
+    // useFindAndModify: false,
+    useUnifiedTopology: true,
   }
 );
 // mongoose.connect("mongodb://localhost/budget", {
